@@ -1,9 +1,17 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
+  private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 
   public static void main(String[] args){
+
+    Map<Date, String> todoMap = new TreeMap<>();
+
+
     Scanner scanner = new Scanner(System.in);
     Date current = new Date();// для ввывода актуальной даты
 
@@ -21,7 +29,7 @@ public class Main {
 
     switch (choice) {
       case 1:
-        // создать метод printTasks, каторый выводит список задач из toDoList.txt
+        printTasks(todoMap);// создать метод printTasks, каторый выводит список задач из toDoList.txt
         // =>создать toDoList.txt, res.directory, todo.txt
         break;
       case 2://создать метод addTask, чтобы добавить новую задачу
@@ -29,8 +37,20 @@ public class Main {
       case 3: // metod saveTaskToFile,сохронить новую задачу в файле
       case 4: //metod removeTask
       case 5: //exit
+    }
+  }
+  private static void printTasks(Map<Date, String> todoMap) {
+    if (todoMap.isEmpty()) {
+      System.out.println("Список задач пуст.");
+      return;
+    }
 
+    System.out.println("\n" + "Все задачи:" + "\n");
 
+    for (Map.Entry<Date, String> entry : todoMap.entrySet()) {
+      String task = entry.getValue();
+      Date date = entry.getKey();
+      System.out.println(DATE_FORMAT.format(date) + "  :  " + task);
     }
   }
 }

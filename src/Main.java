@@ -1,13 +1,10 @@
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Map;
-import java.util.Scanner;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Main {
   private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 
-  public static void main(String[] args){
+  public static void main(String[] args) {
 
     Map<Date, String> todoMap = new TreeMap<>();
 
@@ -39,6 +36,7 @@ public class Main {
       case 5: //exit
     }
   }
+
   private static void printTasks(Map<Date, String> todoMap) {
     if (todoMap.isEmpty()) {
       System.out.println("Список задач пуст.");
@@ -52,5 +50,20 @@ public class Main {
       Date date = entry.getKey();
       System.out.println(DATE_FORMAT.format(date) + "  :  " + task);
     }
+
+  }
+
+  private static void addTask(Map<Date, String> todoMap, Scanner scanner) {
+    System.out.print("Введите дату и время выполнения задачи (dd.MM.yyyy HH:mm): ");
+    String dateString = scanner.nextLine();
+    Date date = new Date();
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(date);
+    int month = calendar.get(Calendar.MONTH) + 1; // Получаем номер месяца (от 0 до 11), добавляем 1
+    if (month < 1 || month > 12) {
+      System.out.println("Неверный номер месяца. Допустимые значения: 1-12.");
+      return;
+    }
   }
 }
+

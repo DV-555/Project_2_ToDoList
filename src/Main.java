@@ -29,7 +29,7 @@ public class Main {
       case 3: // metod saveTaskToFile,сохронить новую задачу в файле
       case 4: //metod removeTask
       case 5: //exit
-        //2 commit: add scanner and switch
+
 
     }
   }

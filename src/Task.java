@@ -1,7 +1,5 @@
-public class Task implements Comparable<Task>{
+public class Task {
 
-  @Override
-  public int compareTo(Task o) {
-    return 0;
-  }
+
+
 }

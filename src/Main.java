@@ -1,9 +1,12 @@
 import java.util.Date;
+import java.util.Scanner;
 
 public class Main {
 
   public static void main(String[] args){
+    Scanner scanner = new Scanner(System.in);
     Date current = new Date();// для ввывода актуальной даты
+
     System.out.println("\n" + "...  Добро пожаловать в Ваш список задач  ...");
     System.out.println("\n" + "... Сегодня " + current + " ...");
     System.out.println("\n" + "==============  Список Задач  ===============");

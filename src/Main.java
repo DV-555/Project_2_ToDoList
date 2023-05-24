@@ -3,6 +3,9 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.TreeMap;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class Main {
 
@@ -30,12 +33,13 @@ public class Main {
     switch (choice) {
       case 1:
         printTasks(
-            todoMap);// создать метод printTasks, который выводит список задач из toDoList.txt
+                todoMap);// создать метод printTasks, который выводит список задач из toDoList.txt
         break;
       case 2:
         addTask(todoMap, scanner);//создать метод addTask, чтобы добавить новую задачу
         break;
       case 3:
+        saveTodoListToFile(todoMap, "todo.txt");
         // method saveTaskToFile,сохранить новую задачу в файле
       case 4: //method removeTask
       case 5: //exit
@@ -73,6 +77,21 @@ public class Main {
     System.out.println("Задача успешно добавлена.");
   }
 
+  private static void saveTodoListToFile(Map<Date, String> todoMap, String fileName) {
+    try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+      for (Map.Entry<Date, String> entry : todoMap.entrySet()) {
+        Date date = entry.getKey();
+        String task = entry.getValue();
+        String line = DATE_FORMAT.format(date) + "|" + task;
+        writer.println(line);
+      }
+      System.out.println("Список задач сохранен в файл: " + fileName);
+    } catch (IOException e) {
+      System.out.println("Ошибка записи в файл: " + e.getMessage());
+    }
+  }
 
 }
+
+
 

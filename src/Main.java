@@ -12,7 +12,7 @@ public class Main {
     System.out.println("\n" + "... Сегодня " + current + " ...");
     System.out.println("\n" + "==============  Список Задач  ===============");
     System.out.println();
-    Welcome.welcome();
+    //Welcome.welcome();
   }
 }
 

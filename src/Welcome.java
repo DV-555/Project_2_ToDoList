@@ -22,16 +22,16 @@ public class Welcome {
             int choice = Integer.parseInt(bufferedReader.readLine());
             switch (choice) {
                 case 1:
-                    //printToDoList();
+                    ToDoTask.printToDoList();
                     break;
                 case 2:
-                    //addToDoList(file, bufferedReader);
+                    ToDoTask.addToDoList(file, bufferedReader);
                     break;
                 case 3:
-                    //removeTask();
+                    ToDoTask.removeTask();
                     break;
                 case 4:
-                  //toExit();
+                    ToDoTask.toExit();
                     running=false;
                     break;
                 default:

@@ -18,7 +18,26 @@ public class Welcome {
             System.out.println("3.Удалить задачу");
             System.out.println("4.Выйти" + "\n");
             System.out.print("Выберите действие (1-4): " + "\n");
-
+            // что бы сделать выбор нужен switch
+            int choice = Integer.parseInt(bufferedReader.readLine());
+            switch (choice) {
+                case 1:
+                    //printToDoList();
+                    break;
+                case 2:
+                    //addToDoList(file, bufferedReader);
+                    break;
+                case 3:
+                    //removeTask();
+                    break;
+                case 4:
+                  //toExit();
+                    running=false;
+                    break;
+                default:
+                    System.out.println("вы сделали не верный ввод !");
+                    break;
+            }
         }
     }
 }
